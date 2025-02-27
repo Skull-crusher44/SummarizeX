@@ -1,345 +1,120 @@
-# Simple React Snippets
+# Video Learning Assistant
 
-The essential collection of React Snippets and commands.
-
-![snippets in action](images/snippets-in-action.gif)
+A full-stack application that helps users learn from video content through AI-powered features including automatic transcription, note-taking, mind mapping, and an AI chat assistant.
 
 ## Features
 
-Only what you need and nothing more. **No Redux. No React Native.**
+- **Video Upload & Management**: Upload and organize your learning videos
+- **Automatic Transcription**: Get accurate transcriptions of video content using Whisper AI
+- **Smart Note-Taking**: Take and organize notes while watching videos
+- **Mind Map Generation**: Automatically generate mind maps from video content
+- **AI Chat Assistant**: Get instant answers and explanations about the video content
+- **Interactive UI**: Clean and intuitive interface for seamless learning experience
 
-Simply, simple React snippets.
+## Tech Stack
 
-These snippets were selected carefully from my own day-to-day React use. Not
-everything in React is included here. This is a hand selected set of snippets
-that work the way that you would expect, not just a copy of the documentation.
+### Frontend (Client)
+- React + Vite
+- Context API for state management
+- Modern responsive design
 
-## Snippets
+### Backend (Server)
+- Node.js
+- Express.js
+- OpenAI integration
+- Whisper AI for transcription
+- File upload handling with Multer
 
-| Snippet | Renders                                       |
-| ------- | --------------------------------------------- |
-| `imr`   | Import React                                  |
-| `imrc`  | Import React / Component                      |
-| `imrd`  | Import ReactDOM                               |
-| `imrs`  | Import React / useState                       |
-| `imrse` | Import React / useState useEffect             |
-| `impt`  | Import PropTypes                              |
-| `impc`  | Import React / PureComponent                  |
-| `cc`    | Class Component                               |
-| `ccc`   | Class Component With Constructor              |
-| `cpc`   | Class Pure Component                          |
-| `ffc`   | Function Component                            |
-| `sfc`   | Stateless Function Component (Arrow function) |
-| `cdm`   | componentDidMount                             |
-| `uef`   | useEffect Hook                                |
-| `ucb`   | useCallback Hook                              |
-| `cwm`   | componentWillMount                            |
-| `cwrp`  | componentWillReceiveProps                     |
-| `gds`   | getDerivedStateFromProps                      |
-| `scu`   | shouldComponentUpdate                         |
-| `cwu`   | componentWillUpdate                           |
-| `cdu`   | componentDidUpdate                            |
-| `cwun`  | componentWillUnmount                          |
-| `cdc`   | componentDidCatch                             |
-| `gsbu`  | getSnapshotBeforeUpdate                       |
-| `ss`    | setState                                      |
-| `ssf`   | Functional setState                           |
-| `usf`   | Declare a new state variable using State Hook |
-| `ren`   | render                                        |
-| `rprop` | Render Prop                                   |
-| `hoc`   | Higher Order Component                        |
-| `cp`    | Context Provider                              |
-| `cpf`   | Class Property Function                       |
+## Project Structure
 
-## Full Expansions
-
-### imr - Import React
-
-```javascript
-import * as React from "react";
+```
+├── client/                 # Frontend React application
+│   ├── src/
+│   │   ├── components/    # React components
+│   │   ├── contexts/      # React contexts
+│   │   ├── services/      # API services
+│   │   └── utils/         # Utility functions
+│   
+└── server/                # Backend Node.js application
+    ├── config/            # Configuration files
+    ├── models/            # Data models
+    ├── routes/            # API routes
+    ├── services/          # Business logic
+    └── utils/             # Utility functions
 ```
 
-### imrc - Import React, Component
+## Getting Started
 
-```javascript
-import * as React from "react";
-import { Component } from "react";
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+- OpenAI API key
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone <repository-url>
 ```
 
-### imrd - Import ReactDOM
-
-```javascript
-import ReactDOM from "react-dom";
+2. Install frontend dependencies
+```bash
+cd client
+npm install
 ```
 
-### imrs - Import React, useState
-
-```javascript
-import * as React from "react";
-import { useState } from "react";
+3. Install backend dependencies
+```bash
+cd server
+npm install
 ```
 
-### imrse - Import React, useState, useEffect
-
-```javascript
-import * as React from "react";
-import { useState, useEffect } from "react";
+4. Configure environment variables
+Create a `.env` file in the server directory with:
+```
+PORT=3000
+OPENAI_API_KEY=your_api_key
 ```
 
-### impt - Import PropTypes
+5. Start the development servers
 
-```javascript
-import PropTypes from "prop-types";
+Frontend:
+```bash
+cd client
+npm run dev
 ```
 
-### impc - Import PureComponent
-
-```javascript
-import * as React from "react";
-import { PureComponent } from "react";
+Backend:
+```bash
+cd server
+npm run dev
 ```
 
-### cc - Class Component
+## API Endpoints
 
-```javascript
-class | extends React.Component {
-  render() {
-    return <div>|</div>
-  }
-}
+### Videos
+- `POST /api/videos/upload` - Upload a new video
+- `GET /api/videos` - Get all videos
+- `GET /api/videos/:id` - Get video by ID
 
-export default |;
-```
+### Transcripts
+- `GET /api/transcripts/:videoId` - Get transcript for a video
+- `POST /api/transcripts/generate` - Generate new transcript
 
-### ccc - Class Component With Constructor
+### Notes
+- `POST /api/notes` - Create new notes
+- `GET /api/notes/:videoId` - Get notes for a video
+- `PUT /api/notes/:id` - Update notes
+- `DELETE /api/notes/:id` - Delete notes
 
-```javascript
-class | extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { | };
-  }
-  render() {
-    return ( | );
-  }
-}
+## Contributing
 
-export default |;
-```
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### cpc - Class Pure Component
+## License
 
-```javascript
-class | extends PureComponent {
-  state = { | },
-  render() {
-    return ( | );
-  }
-}
-
-export default |;
-```
-
-### ffc - Function Component
-
-```javascript
-function (|) {
-    return ( | );
-}
-
-export default |;
-```
-
-### sfc - Stateless Function Component (Arrow function)
-
-```javascript
-const | = props => {
-  return ( | );
-};
-
-export default |;
-```
-
-### cdm - componentDidMount
-
-```javascript
-componentDidMount() {
-  |
-}
-```
-
-### uef - useEffect Hook
-
-```javascript
-useEffect(() => {
-  |
-}, []);
-```
-
-### ucb - useCallback Hook
-
-```javascript
-useCallback((val) => {
-  |
-}, []);
-```
-
-### cwm - componentWillMount
-
-```javascript
-//WARNING! To be deprecated in React v17. Use componentDidMount instead.
-componentWillMount() {
-  |
-}
-```
-
-### cwrp - componentWillReceiveProps
-
-```javascript
-//WARNING! To be deprecated in React v17. Use new lifecycle static getDerivedStateFromProps instead.
-componentWillReceiveProps(nextProps) {
-  |
-}
-```
-
-### gds - getDerivedStateFromProps
-
-```javascript
-static getDerivedStateFromProps(nextProps, prevState) {
-  |
-}
-```
-
-### scu - shouldComponentUpdate
-
-```javascript
-shouldComponentUpdate(nextProps, nextState) {
-  |
-}
-```
-
-### cwu - componentWillUpdate
-
-```javascript
-//WARNING! To be deprecated in React v17. Use componentDidUpdate instead.
-componentWillUpdate(nextProps, nextState) {
-  |
-}
-```
-
-### cdu - componentDidUpdate
-
-```javascript
-componentDidUpdate(prevProps, prevState) {
-  |
-}
-```
-
-### cwun - componentWillUnmount
-
-```javascript
-componentWillUnmount() {
-  |
-}
-```
-
-### cdc - componentDidCatch
-
-```javascript
-componentDidCatch(error, info) {
-  |
-}
-```
-
-### gsbu - getSnapshotBeforeUpdate
-
-```javascript
-getSnapshotBeforeUpdate(prevProps, prevState) {
-  |
-}
-```
-
-### ss - setState
-
-```javascript
-this.setState({ | : | });
-```
-
-### ssf - Functional setState
-
-```javascript
-this.setState(prevState => {
-  return { | : prevState.| }
-});
-```
-
-### usf - Declare a new state variable using State Hook
-
-```javascript
-const [|, set|] = useState();
-```
-
-_Hit Tab to apply CamelCase to function. e.g. [count, setCount]_
-
-### ren - render
-
-```javascript
-render() {
-  return (
-    |
-  );
-}
-```
-
-### rprop - Render Prop
-
-```javascript
-class | extends Component {
-  state = { | },
-  render() {
-    return this.props.render({
-      |: this.state.|
-    });
-  }
-}
-
-export default |;
-```
-
-### hoc - Higher Order Component
-
-```javascript
-function | (|) {
-  return class extends Component {
-    constructor(props) {
-      super(props);
-    }
-
-    render() {
-      return < | {...this.props} />;
-    }
-  };
-}
-```
-
-### cpf - Class Property Function
-
-```javascript
-  | = (e) => {
-    |
-  }
-```
-
-## Commands
-
-### React: class to className
-
-Changes all occurences of `class` in JSX to `className`. This transform is safe
-to run multiple times on any document. No text needs to be selected as the
-command is executed on the entire document.
-
-![React: class to className](https://i.imgur.com/i1ZwvOu.gif)
-
-## Thank You! ❤️
-
-While I wrote the initial version of this extension, many people (too many to name) have helped make it what it is today. From providing TypeScript definitions to keeping up with changing API and best practices. If you are enjoying this extension, you have the great React community to thank.
+This project is licensed under the MIT License - see the LICENSE file for details.
